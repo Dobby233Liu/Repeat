@@ -25,11 +25,11 @@ function onLNButPressMn(temp){
 function onLNButPressCt(temp){
 	window.night = !window.night;
 	if(window.night){
-		document.querySelector("input").style.backgroundColor = "#012";
-		document.body.querySelectorAll("div")[0].style.backgroundColor = "#012";
+		document.querySelector("input").style.backgroundColor = "#010";
+		document.body.querySelectorAll("div")[0].style.backgroundColor = "#010";
 		document.body.querySelectorAll("div")[1].style.color = "#FFF";
-		document.body.querySelectorAll("div")[1].style.backgroundColor = "#012";
-		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#012";
+		document.body.querySelectorAll("div")[1].style.backgroundColor = "#010";
+		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#010";
 		document.querySelector("input").style.color = "#FFF";
 	}else{
 		document.querySelector("input").style.backgroundColor = "#FFF";
