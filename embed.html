@@ -32,6 +32,7 @@
 
 		<script>
 			var i = 0;
+			var talking, notalk = false;
 			function addNewRepeat(message){
 				if (message.toLowerCase().indexOf("repeat") == -1
 					|| (message.toLowerCase().indexOf("fu") == -1 && message.toLowerCase().indexOf("du") == -1)
@@ -59,6 +60,11 @@
 				}
 			}
 			function addNewText(origin){
+				if (!notalk){
+					notalk = true;
+					clearInterval(talking);
+					addNewSystxt("[你加入了队伍]");
+				}
 				var message = $('<div/>').text(document.getElementById("chattext").value).html();
 				repeat(message, parseInt(10 * Math.random() + 1));
 				var chat = document.getElementById("chat");
@@ -68,48 +74,55 @@
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
 			}
+			function addNewSystxt(message){
+				var chat = document.getElementById("chat");
+				var myColor = "green";
+				chat.innerHTML += "<p style='color:" + myColor + "'>" + message + "</p>";
+				chat.scrollTop = chat.scrollHeight;
+			}
 			function handleKeyPress(e,form){
 			  var key = e.keyCode || e.which;
 			  if (key == 13) addNewText(0);
 			}
 			repeat("hi", parseInt(10 * Math.random() + 1));
-			setInterval(function(){
-			  switch (i) {
-				  case 0:
-					  repeat("do you like 2048?", parseInt(4 * Math.random() + 1));
-					  setTimeout(() => repeat("no", parseInt(2 * Math.random() + 1)), 1000);
-					  break;
-				  case 1:
-					  repeat("how do you do in this nice day?", parseInt(4 * Math.random() + 1));
-					  setTimeout(() => repeat("nothing", parseInt(2 * Math.random() + 1)), 1000);
-					  break;
-				  case 2:
-					  repeat("i love repeaters", parseInt(4 * Math.random() + 1));
-					  break;
-				  case 3:
-					  repeat("my nat<a></a>ure is repe<a></a>ater y'know", parseInt(4 * Math.random() + 1));
-					  break;
-				  case 4:
-					  repeat("i wanna find adult cats", parseInt(4 * Math.random() + 1));
-					  setTimeout(() => repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">here you are</a>", parseInt(2 * Math.random() + 1)), 1000);
-					  break;
-				  case 5:
-					  repeat("im determined to talk all the night", parseInt(4 * Math.random() + 1));
-					  break;
-				  case 6:
-					  repeat("bilibili is good", parseInt(4 * Math.random() + 1));
-					  break;
-				  //case 7:
-				  //  repeat("insult magic 9 ball", parseInt(4 * Math.random() + 1));
-				  //  break;
-				  //case 8:
-				  //  repeat("do you have QQ?", parseInt(4 * Math.random() + 1));
-				  //  repeat(randomQQ(9) + " password: " + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
-				  //  break;
-			  }
-			  chat.scrollTop=chat.scrollHeight;
-			  i = (i+1)%7;
-			},4500);
+			var talking = setInterval(function(){
+										  switch (i) {
+											  case 0:
+												  repeat("你喜欢2048吗", parseInt(4 * Math.random() + 1));
+												  setTimeout(() => repeat("不", parseInt(2 * Math.random() + 1)), 1000);
+												  break;
+											  case 1:
+												  repeat("你在干什么", parseInt(4 * Math.random() + 1));
+												  setTimeout(() => repeat("没干什么", parseInt(2 * Math.random() + 1)), 1000);
+												  break;
+											  case 2:
+												  repeat("我爱复读机和鸽子", parseInt(4 * Math.random() + 1));
+												  break;
+											  case 3:
+												  repeat("你知道吗，我的本<a></a>性是复<a></a>读机", parseInt(4 * Math.random() + 1));
+												  repeat("你知道吗，我的本<a></a>性是鸽子", parseInt(2 * Math.random() + 1));
+												  break;
+											  case 4:
+												  repeat("我要找成年猫来吸", parseInt(4 * Math.random() + 1));
+												  setTimeout(() => repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">在这</a>", parseInt(2 * Math.random() + 1)), 1000);
+												  break;
+											  case 5:
+												  repeat("我要谈三天三夜", parseInt(4 * Math.random() + 1));
+												  break;
+											  case 6:
+												  repeat("哔哩哔哩好玩", parseInt(4 * Math.random() + 1));
+												  break;
+											  //case 7:
+											  //  repeat("参考魔力9球", parseInt(4 * Math.random() + 1));
+											  //  break;
+											  //case 8:
+											  //  repeat("你有qq号吗？", parseInt(4 * Math.random() + 1));
+											  //  repeat(randomQQ(9) + " 密码" + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
+											  //  break;
+										  }
+										  chat.scrollTop=chat.scrollHeight;
+										  i = (i+1)%7;
+									},4500);
 			function randomStr(m) {
 				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
 				for (var i=0; i < m; i++) s += r.charAt(Math.floor(Math.random()*r.length));
