@@ -20,3 +20,21 @@ function onLNButPressMn(temp){
 		document.querySelector("h2").style.color = "#34495E";
 	}
 }
+function onLNButPressCt(temp){
+	window.night = !window.night;
+	if(window.night){
+		document.querySelector("input").style.backgroundColor = "#012";
+		document.body.querySelectorAll("div")[0].style.backgroundColor = "#012";
+		document.body.querySelectorAll("div")[1].style.color = "#FFF";
+		document.body.querySelectorAll("div")[1].style.backgroundColor = "#012";
+		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#012";
+		document.querySelector("input").style.color = "#FFF";
+	}else{
+		document.querySelector("input").style.backgroundColor = "#FFF";
+		document.body.querySelectorAll("div")[0].style.backgroundColor = "#22629E";
+		document.body.querySelectorAll("div")[1].style.color = "#333";
+		document.body.querySelectorAll("div")[1].style.backgroundColor = "#F0F0F0";
+		document.querySelector("input").style.color = "#333";
+		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#FFF";
+	}
+}
