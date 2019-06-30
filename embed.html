@@ -26,9 +26,9 @@
 		</div>
 
 		<div style="width:320px;height:400px;overflow:hidden;background-color:#f0f0f0">
-			<div id="chat" style="width:314px;height:360px;margin-left:2px;margin-top:2px;resize:none;background:white;overflow:scroll;border: 1px solid #CCC;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;margin-bottom:5px;">
+			<div id="chat" style="width:314px;height:361px;margin-left:2px;margin-top:2px;resize:none;background:white;overflow:scroll;border: 1px solid #CCC;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;margin-bottom:5px;">
 			</div>
-			<input id="chattext" type="text" style="margin-left:2px;width:242px;" onkeypress="handleKeyPress(event,this.form)"/><button onclick="addNewText()" style="margin-top:-10px;" class="btn">发送</button>
+			<input id="chattext" type="text" style="margin-left:2px;width:250px;" onkeypress="handleKeyPress(event,this.form)"/><button onclick="addNewText()" style="margin-top:-10px;" class="btn">发送</button>
 		</div>
 
 		<script>
@@ -127,7 +127,7 @@
 											  chat.scrollTop=chat.scrollHeight;
 											  i = (i+1)%7;
 											},4500);
-										}, 15000);
+										}, 500);
 			function randomStr(m) {
 				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
 				for (var i=0; i < m; i++) s += r.charAt(Math.floor(Math.random()*r.length));
