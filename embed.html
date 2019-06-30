@@ -33,7 +33,7 @@
 
 		<script>
 			var i = 0;
-			var talking, notalk = false;
+			var talking, notalk = false, zz = false;
 			function addNewRepeat(message){
 				if (message.toLowerCase().indexOf("repeat") == -1
 					|| (message.toLowerCase().indexOf("fu") == -1 && message.toLowerCase().indexOf("du") == -1)
@@ -64,7 +64,7 @@
 				if (!notalk){
 					notalk = true;
 					clearInterval(talking);
-					addNewSystxt("[你加入了队伍]");
+					if (!zz) addNewSystxt("[你加入了队伍]"); else addNewSystxt("[你中断了闲聊]");
 				}
 				var message = $('<div/>').text(document.getElementById("chattext").value).html();
 				repeat(message, parseInt(10 * Math.random() + 1));
@@ -86,48 +86,54 @@
 			  if (key == 13) addNewText(0);
 			}
 			repeat("hi", parseInt(10 * Math.random() + 1));
+			function initTalk(){
+				talking = setInterval(function(){
+							  switch (i) {
+								  case 0:
+									  repeat("你喜欢2048吗", parseInt(4 * Math.random() + 1));
+									  setTimeout(() => repeat("不", parseInt(2 * Math.random() + 1)), 1000);
+									  break;
+								  case 1:
+									  repeat("你在干什么", parseInt(4 * Math.random() + 1));
+									  setTimeout(() => repeat("没干什么", parseInt(2 * Math.random() + 1)), 1000);
+									  break;
+								  case 2:
+									  repeat("我爱复读机和鸽子", parseInt(4 * Math.random() + 1));
+									  break;
+								  case 3:
+									  repeat("你知道吗，我的本<a></a>性是复<a></a>读机", parseInt(4 * Math.random() + 1));
+									  repeat("你知道吗，我的本<a></a>性是鸽子", parseInt(2 * Math.random() + 1));
+									  break;
+								  case 4:
+									  repeat("我要找成年猫来吸", parseInt(4 * Math.random() + 1));
+									  setTimeout(() => repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">在这</a>", parseInt(2 * Math.random() + 1)), 1000);
+									  break;
+								  case 5:
+									  repeat("我要谈三天三夜", parseInt(4 * Math.random() + 1));
+									  break;
+								  case 6:
+									  repeat("哔哩哔哩好玩", parseInt(4 * Math.random() + 1));
+									  break;
+								  //case 7:
+								  //  repeat("参考魔力9球", parseInt(4 * Math.random() + 1));
+								  //  break;
+								  //case 8:
+								  //  repeat("你有qq号吗？", parseInt(4 * Math.random() + 1));
+								  //  repeat(randomQQ(9) + " 密码" + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
+								  //  break;
+							  }
+							  chat.scrollTop=chat.scrollHeight;
+							  i = (i+1)%7;
+						},4500);
+			}
+			initTalk();
 			setInterval(function(){
-					talking = setInterval(function(){
-											  if(!notalk) return;
-											  notalk = false;
-											  switch (i) {
-												  case 0:
-													  repeat("你喜欢2048吗", parseInt(4 * Math.random() + 1));
-													  setTimeout(() => repeat("不", parseInt(2 * Math.random() + 1)), 1000);
-													  break;
-												  case 1:
-													  repeat("你在干什么", parseInt(4 * Math.random() + 1));
-													  setTimeout(() => repeat("没干什么", parseInt(2 * Math.random() + 1)), 1000);
-													  break;
-												  case 2:
-													  repeat("我爱复读机和鸽子", parseInt(4 * Math.random() + 1));
-													  break;
-												  case 3:
-													  repeat("你知道吗，我的本<a></a>性是复<a></a>读机", parseInt(4 * Math.random() + 1));
-													  repeat("你知道吗，我的本<a></a>性是鸽子", parseInt(2 * Math.random() + 1));
-													  break;
-												  case 4:
-													  repeat("我要找成年猫来吸", parseInt(4 * Math.random() + 1));
-													  setTimeout(() => repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">在这</a>", parseInt(2 * Math.random() + 1)), 1000);
-													  break;
-												  case 5:
-													  repeat("我要谈三天三夜", parseInt(4 * Math.random() + 1));
-													  break;
-												  case 6:
-													  repeat("哔哩哔哩好玩", parseInt(4 * Math.random() + 1));
-													  break;
-												  //case 7:
-												  //  repeat("参考魔力9球", parseInt(4 * Math.random() + 1));
-												  //  break;
-												  //case 8:
-												  //  repeat("你有qq号吗？", parseInt(4 * Math.random() + 1));
-												  //  repeat(randomQQ(9) + " 密码" + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
-												  //  break;
-											  }
-											  chat.scrollTop=chat.scrollHeight;
-											  i = (i+1)%7;
-											},4500);
-										}, 500);
+				if(!notalk) return;
+				notalk = false;
+				addNewSystxt("[闲聊继续]");
+				zz = true;
+				initTalk();
+			}, 30000);
 			function randomStr(m) {
 				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
 				for (var i=0; i < m; i++) s += r.charAt(Math.floor(Math.random()*r.length));
