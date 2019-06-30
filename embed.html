@@ -44,13 +44,12 @@
 						} else {
 							message = "复读机";
 						}
-						if (parseInt(1 * Math.random()) == 1) message = messgae.toUpperCase();
+						if (parseInt(2 * Math.random() + 1) == 1) message = message.toUpperCase();
 					}
 				}
 				var chat = document.getElementById("chat");
 				var myColor = "blue";
 				var name = randomStr(5) + "：";
-				document.getElementById("chattext").value = "";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
 			}
