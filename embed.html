@@ -77,7 +77,7 @@
 			  switch (i) {
 				  case 0:
 					  repeat("do you like 2048?", parseInt(4 * Math.random() + 1));
-					  repeat("no", parseInt(2 * Math.random() + 1));
+					  setTimeout(() => repeat("no", parseInt(2 * Math.random() + 1)), 1000);
 					  break;
 				  case 1:
 					  repeat("how do you do in this nice day?", parseInt(4 * Math.random() + 1));
@@ -86,11 +86,11 @@
 					  repeat("i love repeaters", parseInt(4 * Math.random() + 1));
 					  break;
 				  case 3:
-					  repeat("my nature is repeater y'know", parseInt(4 * Math.random() + 1));
+					  repeat("my nat<a></a>ure is repe<a></a>ater y'know", parseInt(4 * Math.random() + 1));
 					  break;
 				  case 4:
 					  repeat("i wanna find adult cats", parseInt(4 * Math.random() + 1));
-					  repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">here you are</a>", parseInt(2 * Math.random() + 1));
+					  setTimeout(() => repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">here you are</a>", parseInt(2 * Math.random() + 1)), 1000);
 					  break;
 				  case 5:
 					  repeat("im determined to talk all the night", parseInt(4 * Math.random() + 1));
@@ -98,16 +98,16 @@
 				  case 6:
 					  repeat("bilibili is good", parseInt(4 * Math.random() + 1));
 					  break;
-				  case 7:
-					  repeat("insult magic 9 ball", parseInt(4 * Math.random() + 1));
-					  break;
-				  case 8:
-					  repeat("do you have QQ?", parseInt(4 * Math.random() + 1));
-					  repeat(randomQQ(9) + " password: " + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
-					  break;
+				  //case 7:
+				  //  repeat("insult magic 9 ball", parseInt(4 * Math.random() + 1));
+				  //  break;
+				  //case 8:
+				  //  repeat("do you have QQ?", parseInt(4 * Math.random() + 1));
+				  //  repeat(randomQQ(9) + " password: " + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
+				  //  break;
 			  }
 			  chat.scrollTop=chat.scrollHeight;
-			  i = (i+1)%9;
+			  i = (i+1)%7;
 			},1500);
 			function randomStr(m) {
 				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
