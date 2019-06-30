@@ -1,4 +1,4 @@
-window.night = false;
+window.night = new Date().getHours >= 18;
 function onLNButPressMn(temp){
 	window.night = !window.night;
 	if(window.night){
