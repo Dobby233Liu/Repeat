@@ -50,7 +50,7 @@
 					}
 				}
 				var chat = document.getElementById("chat");
-				var myColor = "#125";
+				var myColor = "#149";
 				var name = randomStr(5) + "：";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
@@ -69,7 +69,7 @@
 				var message = $('<div/>').text(document.getElementById("chattext").value).html();
 				repeat(message, parseInt(10 * Math.random() + 1));
 				var chat = document.getElementById("chat");
-				var myColor = "red";
+				var myColor = "#750";
 				var name = "你：";
 				document.getElementById("chattext").value = "";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
