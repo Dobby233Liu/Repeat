@@ -31,8 +31,8 @@
 
 		<script>
 			function addNewRepeat(message){
-				if (message.indexOf("本质") > -1 || message.toLowerCase().indexOf("nature") > -1 || (message.toLowerCase().indexOf("ben") > -1 && message.toLowerCase().indexOf("zhi") > -1)){
-					if ((message.toLowerCase().indexOf("ben") > -1 && message.toLowerCase().indexOf("zhi") > -1)){
+				if ((message.indexOf("本质") > -1 || message.indexOf("本子") > -1) || message.toLowerCase().indexOf("nature") > -1 || (message.toLowerCase().indexOf("ben") > -1 && (message.toLowerCase().indexOf("zhi") > -1 || message.toLowerCase().indexOf("zi") > -1))){
+					if ((message.toLowerCase().indexOf("ben") > -1 && (message.toLowerCase().indexOf("zhi") > -1 || message.toLowerCase().indexOf("zi") > -1))){
 						message = "fu du jier";
 					} else if (message.toLowerCase().indexOf("nature") > -1) {
 						message = "repeater";
