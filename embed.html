@@ -31,6 +31,7 @@
 		</div>
 
 		<script>
+			var i = 0;
 			function addNewRepeat(message){
 				if (message.toLowerCase().indexOf("repeat") == -1
 					|| (message.toLowerCase().indexOf("fu") == -1 && message.toLowerCase.indexOf("du") == -1)
@@ -48,14 +49,14 @@
 				}
 				var chat = document.getElementById("chat");
 				var myColor = "blue";
-				var name = "[一个人]：";
+				var name = randomStr(5) + "：";
 				document.getElementById("chattext").value = "";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
 			}
 			function repeat(message, times){
 				for(var i=0; i<times; i++){
-					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random() + 35));
+					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random() + 55));
 				}
 			}
 			function addNewText(origin){
@@ -71,6 +72,53 @@
 			function handleKeyPress(e,form){
 			  var key = e.keyCode || e.which;
 			  if (key == 13) addNewText(0);
+			}
+			repeat("hi", parseInt(10 * Math.random() + 1));
+			setInterval(function(){
+			  switch (i) {
+				  case 0:
+					  repeat("do you like 2048?", parseInt(4 * Math.random() + 1));
+					  repeat("no", parseInt(2 * Math.random() + 1));
+					  break;
+				  case 1:
+					  repeat("how do you do in this nice day?", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 2:
+					  repeat("i love repeaters", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 3:
+					  repeat("my nature is repeater y'know", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 4:
+					  repeat("i wanna find adult cats", parseInt(4 * Math.random() + 1));
+					  repeat("<a href=\"https://adultcatfinder.com\" target=\"_blank\">here you are</a>", parseInt(2 * Math.random() + 1));
+					  break;
+				  case 5:
+					  repeat("im determined to talk all the night", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 6:
+					  repeat("bilibili is good", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 7:
+					  repeat("insult magic 9 ball", parseInt(4 * Math.random() + 1));
+					  break;
+				  case 7:
+					  repeat("do you have QQ?", parseInt(4 * Math.random() + 1));
+					  repeat(randomQQ(9), parseInt(2 * Math.random() + 1));
+					  break;
+			  }
+			  chat.scrollTop=chat.scrollHeight;
+			  i = parseInt(9 * Math.random() + 1);
+			},3000);
+			function randomStr(m) {
+				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
+				for (var i=0; i < m; i++) s += r.charAt(Math.floor(Math.random()*r.length));
+				return s;
+			}
+			function randomQQ(m) {
+				var m = m || 9; s = '', r = '312647598';
+				for (var i=0; i < m; i++) s += r.charAt(Math.floor(Math.random()*r.length));
+				return s;
 			}
 		</script>
 	</body>
