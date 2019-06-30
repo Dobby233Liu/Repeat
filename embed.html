@@ -56,7 +56,7 @@
 			}
 			function repeat(message, times){
 				for(var i=0; i<times; i++){
-					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random() + 55));
+					setTimeout(() => addNewRepeat(message), parseInt(555 * Math.random() + 55));
 				}
 			}
 			function addNewText(origin){
@@ -102,13 +102,13 @@
 				  case 7:
 					  repeat("insult magic 9 ball", parseInt(4 * Math.random() + 1));
 					  break;
-				  case 7:
+				  case 8:
 					  repeat("do you have QQ?", parseInt(4 * Math.random() + 1));
-					  repeat(randomQQ(9), parseInt(2 * Math.random() + 1));
+					  repeat(randomQQ(9) + " password: " + randomStr(8) + randomQQ(10) + randomStr(6), parseInt(2 * Math.random() + 1));
 					  break;
 			  }
 			  chat.scrollTop=chat.scrollHeight;
-			  i = parseInt(9 * Math.random() + 1);
+			  i = (i+1)%9;
 			},3000);
 			function randomStr(m) {
 				var m = m || 9; s = '', r = 'CADBEGFHJIMKNLPOSQRTVUYWXcbaZedfhgijnmklorqpsutwvzyx';
