@@ -30,7 +30,6 @@
 		</div>
 
 		<script>
-			var ii = 0;
 			function addNewRepeat(message){
 				var chat = document.getElementById("chat");
 				var myColor = "blue";
@@ -41,12 +40,12 @@
 			}
 			function repeat(message, times){
 				for(var i=0; i<times; i++){
-					setTimeout(() => addNewRepeat(message), (ii + 1) % 1500);
+					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random()));
 				}
 			}
 			function addNewText(origin){
 				var message = $('<div/>').text(document.getElementById("chattext").value).html();
-				repeat(message, (ii + 1) % 50);
+				repeat(message, parseInt(50 * Math.random()));
 				var chat = document.getElementById("chat");
 				var myColor = "red";
 				var name = "You: ";
