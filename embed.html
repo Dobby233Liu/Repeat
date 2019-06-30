@@ -31,6 +31,15 @@
 
 		<script>
 			function addNewRepeat(message){
+				if (message.indexOf("本质") > -1 || message.indexOf("nature") > -1 || (message.indexOf("ben") > -1 && message.indexOf("zhi") > -1)){
+					if ((message.indexOf("ben") > -1 && message.indexOf("zhi") > -1)){
+						message = "fu du jier";
+					} else if (message.indexOf("nature") > -1) {
+						message = "repeater";
+					} else {
+						message = "复读机";
+					}
+				}
 				var chat = document.getElementById("chat");
 				var myColor = "blue";
 				var name = "[一个人]：";
