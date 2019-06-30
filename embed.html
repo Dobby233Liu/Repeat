@@ -24,31 +24,31 @@
 		</div>
 
 		<div style="width:320px;height:400px;overflow:hidden;background-color:#f0f0f0">
-			<div id="chat" style="width:314px;height:255px;margin-left:2px;margin-top:2px;resize:none;background:white;overflow:scroll;border: 1px solid #CCC;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;margin-bottom:5px;">
+			<div id="chat" style="width:314px;height:360px;margin-left:2px;margin-top:2px;resize:none;background:white;overflow:scroll;border: 1px solid #CCC;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;margin-bottom:5px;">
 			</div>
-			<input id="chattext" type="text" style="margin-left:2px;width:242px;" onkeypress="handleKeyPress(event,this.form)"/><button onclick="addNewText()" style="margin-top:-10px;" class="btn">Send</button>
+			<input id="chattext" type="text" style="margin-left:2px;width:242px;" onkeypress="handleKeyPress(event,this.form)"/><button onclick="addNewText()" style="margin-top:-10px;" class="btn">发送</button>
 		</div>
 
 		<script>
 			function addNewRepeat(message){
 				var chat = document.getElementById("chat");
 				var myColor = "blue";
-				var name = "[random person]: ";
+				var name = "[一个人]：";
 				document.getElementById("chattext").value = "";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
 			}
 			function repeat(message, times){
 				for(var i=0; i<times; i++){
-					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random()));
+					setTimeout(() => addNewRepeat(message), parseInt(1500 * Math.random() + 35));
 				}
 			}
 			function addNewText(origin){
 				var message = $('<div/>').text(document.getElementById("chattext").value).html();
-				repeat(message, parseInt(50 * Math.random()));
+				repeat(message, parseInt(5 * Math.random()));
 				var chat = document.getElementById("chat");
 				var myColor = "red";
-				var name = "You: ";
+				var name = "你：";
 				document.getElementById("chattext").value = "";
 				chat.innerHTML += "<p style='color:" + myColor + "'>" + name + message + "</p>";
 				chat.scrollTop = chat.scrollHeight;
