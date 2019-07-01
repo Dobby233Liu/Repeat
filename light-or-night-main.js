@@ -40,9 +40,9 @@ function onLNButPressCt(temp){
 		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#FFF";
 	}
 }
-if(window.night && location.indexOf("embed.html") == 0) {
+if(window.night && location.indexOf("embed.html") > -1) {
 	onLNButPressCt(0);
 }
-if(window.night && location.indexOf("embed.html") == -1) {
+if(window.night && location.indexOf("embed.html") <= -1) {
 	onLNButPressMn(0);
 }
