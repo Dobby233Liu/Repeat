@@ -40,9 +40,12 @@ function onLNButPressCt(temp){
 		document.body.querySelectorAll("div#chat")[0].style.backgroundColor = "#FFF";
 	}
 }
-if(window.night && location.indexOf("embed.html") > -1) {
-	onLNButPressCt(0);
-}
-if(window.night && location.indexOf("embed.html") <= -1) {
-	onLNButPressMn(0);
-}
+window.onload = function(){
+	if (!window.night) return false;
+	if(location.href.includes("embed.html")) {
+		onLNButPressCt(0);
+	} else {
+		onLNButPressMn(0);
+	}
+	return false;
+};
